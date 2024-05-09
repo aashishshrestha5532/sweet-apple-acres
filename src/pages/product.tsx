@@ -41,7 +41,6 @@ const ProductDetail = () => {
   return (
     <div>
       <h2>{product.name}</h2>
-
       <img
         src={product.image}
         className="product-detail-image"
@@ -53,7 +52,9 @@ const ProductDetail = () => {
         <b>{product.isAvailable ? "In Stock" : "Out of Stock"}</b>
         <p>{product.description}</p>
       </div>
-
+      Quantity:
+      <button onClick={() => reduceItemQuantity(product.id)}>-</button>
+      <span className="mx-1">{item?.quantity ?? 0}</span>
       <button
         onClick={() => {
           addItemToCart(product);
@@ -61,8 +62,6 @@ const ProductDetail = () => {
       >
         +
       </button>
-      <span>{item?.quantity ?? 0}</span>
-      <button onClick={() => reduceItemQuantity(product.id)}>-</button>
     </div>
   );
 };
